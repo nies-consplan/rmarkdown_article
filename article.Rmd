@@ -1,0 +1,37 @@
+---
+title: "Draft"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+library(magrittr)
+library(knitr)
+opts_chunk$set(echo = TRUE)
+```
+
+```{r, include = FALSE}
+library(RefManageR)
+bib_sample <- ReadBib("sample.bib")
+
+BibOptions(check.entries = FALSE, style = "markdown", cite.style = "authoryear",
+           bib.style = "numeric")
+```
+
+```{r, child = "01_introduction.Rmd"}
+```
+
+```{r, child = "02_methods.Rmd"}
+```
+
+```{r, child = "03_results.Rmd"}
+```
+
+```{r, child = "04_discussion.Rmd"}
+```
+
+References
+=========
+
+```{r results = "asis", echo = FALSE}
+PrintBibliography(bib_sample, .opts = list(check.entries = FALSE, sorting = "ynt"))
+```

@@ -1,0 +1,6 @@
+Results
+============
+
+- `r Citet(bib_sample, "Kubo_2014")`
+- `r Citet(bib_sample, "Kubo_2018")`
+- `r TextCite(bib_sample, "Mameno_2017")`

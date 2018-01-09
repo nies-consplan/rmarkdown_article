@@ -1,0 +1,6 @@
+Discussion
+============
+
+```{r, results = "asis", echo = FALSE}
+stringi::stri_rand_lipsum(nparagraphs = 3,start_lipsum = 1)
+```

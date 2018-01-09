@@ -1,0 +1,52 @@
+Material and Methods
+============
+
+```{r}
+# Load bibliographic references manager
+library(RefManageR)
+```
+
+### Function
+
+Start with CAPITAL letters.
+
+- `Cite()`
+- `AutoCite()`
+
+```{r, eval = FALSE, echo = FALSE}
+library(rorcid)
+library(dplyr)
+d_tkubo_works <- rorcid::orcid_id("0000-0002-4832-5539") %>% 
+  works() %>% 
+  use_series(data) %>% 
+  filter(`work-citation.work-citation-type` == "BIBTEX",
+        grepl("^[A-Z]", `journal-title.value`)) %>% 
+  select(`work-citation.citation`)
+
+bib <- c("10.1016/j.ecolecon.2017.07.032", "10.1016/j.gecco.2017.03.007",
+  "10.1007/s10344-016-0994-0", "10.1016/j.biocon.2014.05.019",
+  "10.1016/j.biocon.2014.05.019") %>% 
+  purrr::map(ReadCrossRef)
+
+bib %>% purrr::walk(WriteBib, file = "sample.bib", biblatex = TRUE, append = TRUE)
+```
+
+Setup rmakrodnw chunk.
+
+```
+library(RefManageR)
+bib <- ReadBib("my_bibliograpy.bib")
+```
+
+In RMarkdown file.
+
+```
+Blah blah blah 'r Citet(bib, "author14")'. # Author (2014)
+```
+
+Options
+
+- `.opts = list(hyperlink = "to.doc")`
+- `.opts = list(hyperlink = FALSE)`
+
+
