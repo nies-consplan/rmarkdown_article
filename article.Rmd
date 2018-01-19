@@ -1,6 +1,12 @@
 ---
 title: "Draft"
-output: pdf_document
+# header-includes:
+# - \setmainfont{IPAexMincho}
+# - \setsansfont{IPAexGothic}
+output: 
+  pdf_document:
+    latex_engine: xelatex
+    keep_tex: no
 ---
 
 ```{r setup, include=FALSE}
