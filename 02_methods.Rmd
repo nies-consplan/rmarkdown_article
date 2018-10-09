@@ -31,14 +31,14 @@ bib <- c("10.1016/j.ecolecon.2017.07.032", "10.1016/j.gecco.2017.03.007",
 bib %>% purrr::walk(WriteBib, file = "sample.bib", biblatex = TRUE, append = TRUE)
 ```
 
-Setup rmakrodnw chunk.
+Setup R Markdown chunk.
 
 ```
 library(RefManageR)
 bib <- ReadBib("my_bibliograpy.bib")
 ```
 
-In RMarkdown file.
+In R Markdown file.
 
 ```
 Blah blah blah 'r Citet(bib, "author14")'. # Author (2014)
